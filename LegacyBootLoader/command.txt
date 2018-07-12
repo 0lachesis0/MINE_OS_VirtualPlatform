@@ -1,0 +1,14 @@
+;/***************************************************
+;		 Copyright (c) 2018 MINE 田宇
+;
+; This program is free software; you can redistribute it and/or
+; modify it under the terms of version 2 of the GNU General Public
+; License as published by the Free Software Foundation.
+;
+;***************************************************/
+
+	dd if=boot.bin of=../bochs-2.6.6/boot.img bs=512 count=1 conv=notrunc
+	mount ../bochs-2.6.6/boot.img /media/ -t vfat -o loop 
+	cp loader.bin	/media/
+	sync
+	umount /media/
